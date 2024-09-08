@@ -1,0 +1,29 @@
+This is a MILESTONE PROJECT 01
+Built with HTML, CSS, JS
+
+STEPS:
+1] Configure player names->form with i/p field & modal overlay, also validate user
+ i/p & show validation feedback.
+
+2] (Re - )Start Game-> 'Start Game' button should never clear current game board 
+or 'Game Over' msg.
+
+3] Turn-based gameplay-> Turns should switch automatically between the 2 players.
+Every player has his/her own symbol.
+
+4] Select fields & check for winner-> Game fields are clickable & the player's symbol is 
+displayed. Check for winner(regular Tic-Tac-Toe rules) after every turn.
+
+5] show 'Game Over' window-> Present 'Game Over' msg which highlights winner (or draw)
+ once the game ends.
+
+ aside-> good html element whenever there is some complimentary action like
+        a sidebar for some navigation, overlay.
+        alternative is <div>
+article->?
+modal overlay
+
+event object describes the event that occurred. It has a target property.
+app.js contains all the const definitions and event listeners.
+configuration.js contains all the fxns associated to those events.
+#game-board li{}=>in game.css is set to display as flex so as to align the content within it(here, center). 

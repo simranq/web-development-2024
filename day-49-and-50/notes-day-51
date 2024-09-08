@@ -1,0 +1,48 @@
+# DAY 51 #
+One more use -
+in all our html (ejs files) we've that shared header tag same in every file with customized a link's href adjustments. it means that code needs a lot of adjustments.
+now, ejs has a feature called 'includes' that helps us deal with that prblm.
+It is an ejs file to split ur big html file into smaller, more manageable pieces.
+
+
+WHAT DID WE DO ON DAY 51?
+
+added includes folder in views folder
+In 'includes' folder we created a 'header.ejs' file copy the header here.
+<%- content %> =>   '-' is another ejs syntax we use when we wanna render some HTML content.
+cuz, by default, if we o/p smthg in this ejs form, it o/ps as raw text i.e user can't inject html text (like imgs) thus top-notch security!!
+<%= content %> => '=' sign escapes the value that it o/ps i.e. translates it into raw text. Useful for user-generated content and not for including some HTML code.
+<%- %>         => '-' doesn't escape but will actually treat HTML code as HTML code instead of raw text.
+<%- include %> =>  allows us to specify a path to another file & then that file would be parsed by ejs as well and it will generate that html content and inject nd treat it as html content. By default, u can use relative path.
+can pass dynamic data too.
+
+<%- include('includes/header', {}) %> => 'path', object with data in {}
+                                      => just like render()
+
+TO REDUCE CODE REDUNDANCY (OF HEADER & SIDE-DRAWER), WE'VE CREATED SEPARATE FILES WITHIN INCLUDES FOLDER  
+<%- include('includes/header') %>
+<%- include('includes/side-drawer') %>
+BY WRITING THE ABOVE 2 LINES OF CODE, WE CAN REDUCE CODE REPETITION OF THE HEADER & ASIDE TAGS.
+Code can be easily maintained.
+we did the same thing with the <head> by => '<%- include('includes/head') %>'
+Note that, restaurant-item.ejs has dynamic data but include accepts dynamic data too even though'-' is there. but add object {} too. here restaurant key
+1 prblm is that ejs language isn't understood by VS Code, which can be done by installing 'EJS LANGUAGE SUPPORT'.
+
+WE WERE ABLE TO CHANGE THE HTML CONTENT DYNAMICALLY ON THE SERVER USING EJS. WE NEEDED THIS TEMPLATE ENGINE ONLY CUZ WE HAD SOME DYNAMIC CONTENT!
+& HENCE WE NEEDED A SERVER-SIDE LANGUAGE.
+BENEFITS-
+using include we can divide file into segments
+ejs allows us to o/p values <%= gffffnh %> as raw text.
+also run js lang too like 'for', 'if-else'
+# NOTE   -    ALWAYS KNOW THAT SERVER GETS THE FINISHED  HTML CODE & NOT ALL THE EJS..
+static css & js files can be served using express.static (static is a middleware) of a specific folder.
+#-------------------------------------------------------------------------------------------------------------
+# DAY 51    PART II
+# TOPIC - Advanced server-side code    -   dynamic routes, error handling, patterns
+# - BUILDING A MORE DYNAMIC & REALISTIC BACKEND
+
+# dynamic routes
+
+# custom middleware & err handling
+
+# optimizing code

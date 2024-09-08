@@ -1,0 +1,24 @@
+3RD PARTY PACKAGES
+CSS 
+BOOTSTRAP
+Material UI
+Tailwind CSS
+
+JAVASCRIPT 
+Image carousel
+Scrollspy
+Parallax Effect
+
+#3rd party 
+less code to write / see results quickly	+ point
+BUT-less control, more default behaviour	- point
+
+
+#custom code
+more code to write, more work + more error prone - point
+BUT-full control over the result		 + point
+
+THUS, MIXING BOTH APPROACHES PROVIDES THE BEST SOLUTION!!
+
+
+

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Delhi Darbar",
+    "address": "Kashimira, Thane - 401107, India",
+    "cuisine": "Mughlai",
+    "website": "https://www.delhidarbar.co.in",
+    "description": "Delicious cuisine, Best service quality👌🏼👌🏼\r\nHighly Recommended - 8/10"
+  },
+  {
+    "name": "Test2",
+    "address": "testcity2",
+    "cuisine": "Italian",
+    "website": "https://www.mygreatest.com",
+    "description": "It is lit!"
+  },
+  {
+    "name": "Restaurant3",
+    "address": "Awesome Street 3, My City",
+    "cuisine": "Indian",
+    "website": "https://www.xyz.com",
+    "description": "Awesome cuisine of another level, definitely recommend!"
+  }
+]

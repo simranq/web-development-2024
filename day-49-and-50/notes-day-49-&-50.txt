@@ -1,0 +1,46 @@
+# --------------------------------------------DAY 49 & 50------------------------------------------------------------------
+#               NodeJS & HTML Files - Working with Templates - Working with Static  Dynamic Files
+# --------------------------------------------------------------------------------------------------------------------
+- Sending HTML Files As Responses
+- Serving Static Files
+- Working With Dynamic Templates
+----------------------------------------------------------------------------------------------------
+I imported the sample starting code and as per it, we'are not able to store the data dynamically in real-tym.
+Also, instead of showcasing some dummy data, we wanna show real data submitted my users.
+i.e.    restaurants.html dynamically has to be updated
+sendFile(path>): sends back a file as a response-look into a file and see if it has html content & work in accordance
+path.join(__dirname,'views',restaurants.html');
+__dirname = to get absolute path of file
+views = to dive into that folder (here, views)
+restaurants.html = filename which has to be sent back
+# Note that pathname has to be absolute path.
+# STATIC FILES- style & js files i.e. they'll never be touched/ chaged by server-side code. They're prewritten & hence static. Our html files at the moment are static, but some of hem will beome dynamic.
+
+THIS WAS HOW WE DID W/O A TEMPLATE (ejs) -
+
+app.get('/about', function (req, res) {
+    const htmlFilePath = path.join(__dirname, 'views', 'about.html');
+    res.sendFile(htmlFilePath);
+});
+
+Just to be clear, by default, NO files / folders of ur server r accessible by the public (i.e. by entering the file path in the browser address bar). Ypu only send back responses in your routes.
+
+Pushed scripts & styles folders into public folder.
+# app.use(express.static('public')); => means that if successful returns file as response.. if not then the req will be forwarded
+
+app.set('view engine','ejs'); 
+here,
+view engine => we're telling express that we're gonna use a special template engine for processing our view file before we send them back as HTML.
+ejs         => template engine name
+
+Replace extensions: .html to .ejs
+Template engines take i/p in html code so it is perfectly fine !
+
+render() is another method available on response object. It's job is to render a so called template i.e. parse a template file with the help of an engine & convert it into HTML which will then be sent back to browser as a response.
+
+'<%= numberOfRestaurants %>' => to replace the defined variable 
+the server parses & renders the value(numberOfRestaurants: 2) and not the above code i.e. it displays - 'We found 2 restaurants.'
+
+Now, we're fully utilizing the backend code to generate dynamically generated html code with d help of nodejs(lang) & express(library).
+<% dummy %> dummy is js code understood by ejs. Can be used anywhere not only for text but for links,...etc etc.
+
