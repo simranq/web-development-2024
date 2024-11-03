@@ -1,0 +1,34 @@
+															##WEB DEVT 100 DAYS
+
+Web devs build websites+ web services
+build websites+frontend+build webservices+
+
+how does web work
+URL >>	https	://	www.		academind.co					/tutorials
+								DOMAIN					  	 PATH
+						(the human readable address      	A ptr(on a given website) to a specific 		
+						    (identifier) of a website)			resource
+
+REQUEST  is sent to server & is structured in https(the lang server & client  speak) form. 
+RESPONSE is returned from server(backend) to client(browser & user i.e. frontend)
+
+WHAT ARE THESE BROWSER INSTRUCTIONS?
+Intstructions that tell the browser what should be displayed on the screen						
+3 BASIC IMP WEB DEV LANGS
+HTML(content & struct of web page)	
+CSS(styling of content displayed)
+JavaScript(user interactivity is added)
+(you can easily inspect and find the website's code>-<)
+
+REQUEST IS SENT IN THE FOM OF DOMAIN AND SERVER RECEIVES IT AS IP ADDRESS ( via DNS ).
+SERVER RESPONDS TO THE CLIENT
+--------------------------
+Common inline elements:
+<a><button><img><span>...etc
+--------------------------
+The difference is on the basis of new line & full width between inline and block elements in html.
+header is the parent of all tags. Inline elements have limitations when it comes to top/bottom margin & padding. so we use inline-block  value of display property.
+--------------------------
+The box shadow property helps pages look more beautiful i.e. shadow around borders.dir behind to ryt is offset, offset along y i.e. to bottom, blur-radius
+--------
+we cant apply vertical margins on inline elements. replace & non replace inline elements are 2 types-replace is an image 

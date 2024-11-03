@@ -23,7 +23,7 @@ app.get('/about', function (req, res) {
     res.sendFile(htmlFilePath);
 });
 
-Just to be clear, by default, NO files / folders of ur server r accessible by the public (i.e. by entering the file path in the browser address bar). Ypu only send back responses in your routes.
+Just to be clear, by default, NO files / folders of ur server r accessible by the public (i.e. by entering the file path in the browser address bar). You only send back responses in your routes.
 
 Pushed scripts & styles folders into public folder.
 # app.use(express.static('public')); => means that if successful returns file as response.. if not then the req will be forwarded

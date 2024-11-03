@@ -1,9 +1,12 @@
-const fs = require("fs");
+const express = require("express");
 const path = require("path");
 
-const express = require("express");
+const defaultRoutes = require('./routes/default'); //refactored
+const restRoutes = require('./routes/restaurants'); //refactored
 
 const app = express();
+
+//CONFIGURES SETTINGS FOR EXPRESS APPLICATIONS
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -13,48 +16,28 @@ app.set("view engine", "ejs");
 app.use(express.static("public")); // has obj like properties
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", function (req, res) {
-  res.render("index"); //since we used ejs on line 9, thus, no extension req (i.e. 'index.ejs')
+app.use('/', defaultRoutes);    // for all incoming requests
+app.use('/', restRoutes);       // SENDING HTML FILES AS RESPONSES (as dynamic)
+
+                                          //we are gonna create a custom middleware here and not add next to the other middleware
+                                          //right before we listen at the bottom..why at the bottom??-> because requests are basically funnelled through
+                                          // (up-to-down) all these functions and all these routes
+                                          //So, if a new request reaches our server then first it funnels through these middlewares and then it checks all the
+                                          // routes and which one should handle it!
+                                          //404 error handling below
+
+app.use(function(req, res){
+  res.status(404).render('404'); 
 });
 
-// SENDING HTML FILES AS RESPONSES (as dynamic)
+                                          //middleware that'll be exec if any error occurs
+                                          //function() here is different with 4 parameters(error, req, res, next) as it signals to express that this is 
+                                          // that special default error handler middleware fxn
+                                          // next is applicable for all mwares but it is a lil adv concept, next()..
 
-app.get("/restaurants", function (req, res) {
-  const filePath = path.join(__dirname, "data", "restaurants.json");
+app.use(function(error, req, res, next){
+  res.status(500).render('500');   //refer 404 error handling
 
-  const fileData = fs.readFileSync(filePath);
-  const storedRestaurants = JSON.parse(fileData);
-
-  res.render("restaurants", {
-    numberOfRestaurants: storedRestaurants.length,
-    restaurants: storedRestaurants,
-  });
-});
-
-app.get("/recommend", function (req, res) {
-  res.render("recommend");
-});
-
-app.post("/recommend", function (req, res) {
-  const restaurant = req.body; //after this line 10 was written
-  const filePath = path.join(__dirname, "data", "restaurants.json");
-
-  const fileData = fs.readFileSync(filePath);
-  const storedRestaurants = JSON.parse(fileData);
-
-  storedRestaurants.push(restaurant);
-
-  fs.writeFileSync(filePath, JSON.stringify(storedRestaurants));
-
-  res.redirect("/confirm");
-});
-
-app.get("/confirm", function (req, res) {
-  res.render("confirm");
-});
-
-app.get("/about", function (req, res) {
-  res.render("about");
 });
 
 app.listen(3000);

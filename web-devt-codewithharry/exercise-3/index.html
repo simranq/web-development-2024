@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 3</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      body {
+        background-color: bisque;
+      }
+      .buttons {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .buttons li a {
+        background-color: #c4c588;
+        border-radius: 25px;
+        color: white;
+      }
+      .card {
+        display: block;
+        margin: 33px;
+        justify-content: center;
+        width: 400px;
+        height: 444px;
+        border-radius: 25px;
+        background-color: rgb(255, 255, 255);
+      }
+      img {
+        padding: 5px;
+        width: 100%;
+        height: auto;
+        border-radius: 25px;
+        object-fit: cover;
+       
+      }
+      img:hover {
+        filter: grayscale(30%);
+    /* transform: scale(1.2); */
+    }
+      .card ul li {
+        list-style: none;
+        /* padding: 33px; */
+      }
+      .card a {
+        text-decoration: none;
+        padding: 10px;
+        display: inline-block;
+        background-color: white;
+        border-radius: 25px;
+        color: rgb(100, 183, 211);
+      }
+      .card a:hover {
+        background-color: rgb(219, 231, 241);
+        color: rgb(90, 156, 179);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <ul>
+        <li>
+          <img src="Creamy-Chicken-Pasta.jpg" alt="IMAGE" />
+        </li>
+        <ul class="buttons">
+          <li><a href="">Food</a></li>
+          <li><a href="">Non-Veg</a></li>
+        </ul>
+        <li>
+          <h2>Creamy Chicken Pasta</h2>
+        </li>
+        <li>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt,
+            labore facere. Aut pariatur sunt nesciunt. Quisquam libero incidunt
+            cumque maiores labore consectetur natus, hic ipsam quia architecto
+            voluptatum vel, aliquid nemo quo esse quae autem.
+          </p>
+        </li>
+        <li><a href="">Read More</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

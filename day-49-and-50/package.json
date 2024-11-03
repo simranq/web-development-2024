@@ -10,7 +10,8 @@
   "description": "NodeJS & HTML Files",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
-    "nodemon": "^3.1.4"
+    "express": "^4.21.1",
+    "nodemon": "^3.1.4",
+    "uuid": "^10.0.0"
   }
 }

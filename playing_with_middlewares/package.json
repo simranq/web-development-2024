@@ -1,0 +1,24 @@
+{
+  "name": "playing_with_middlewares",
+  "version": "1.0.0",
+  "description": "Getting started with middlewares!!",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simranq/web-development-2024.git"
+  },
+  "author": "Simran Qureshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simranq/web-development-2024/issues"
+  },
+  "homepage": "https://github.com/simranq/web-development-2024#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.0",
+    "nodemon": "^3.1.4"
+  }
+}

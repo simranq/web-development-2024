@@ -42,7 +42,47 @@ static css & js files can be served using express.static (static is a middleware
 # - BUILDING A MORE DYNAMIC & REALISTIC BACKEND
 
 # dynamic routes
+restaurants are dyn user gen data. thus each resto should have unique id so that we dont have to create routes for each resto. as it would be too hectic. here, comes the concept of dynamic routes
+
+req.params.id -> params contains objects which then have any dynamic placeholder defined by us (here, id)
+dr are crucial features.
+
+TO CREATE UNIQUE IDs WE INSTALLED A 3RD PARTY PACKAGE => npm install uuid
+uuid.v4() => v4 generates a random unique id i.e a string
+  restaurant.id = uuid.v4(); => restaurant.id (creates 'id' key) gets created in restaurants.json
 
 # custom middleware & err handling
+after referring notes from app.js, created 404.ejs & 500.ejs whilst we were at it
+304 - 
+chrome is caching all these files locally on pc for quicker responses nd this can be undone simply by unchecking disable cache
+
+       (earlier)            (now)
+  res.render('404'); ->  res.status().render('404');
+  res.status().render('404');->default status would be 200 and we can customize it by passing arguments in status.
 
 # optimizing code
+add a new subfolder 'util' where all the utilities(functions) are shared.
+always "require('package');", else error would arise
+
+first require built-in packages > 3rd party packages > own files
+You can expose (or export) fxns and variables/constants.
+
+module.exports = {
+    getStoredRestaurants : getStoredRestaurants
+};
+You
+module.exports = {
+    getStoredRestaurants : getStoredRestaurants
+};
+
+Explanation
+1. module.exports: This object is used to define what a module exports and makes available for other files to require.
+2. getStoredRestaurants: getStoredRestaurants: This is exporting a function (or any other variable) named getStoredRestaurants.
+The first getStoredRestaurants is the name you’re giving to the function in the exports object. It is upto me to name.
+The second getStoredRestaurants is the actual function you’re exporting.
+
+
+const filePath = path.join(__dirname, ".." ,"data", "restaurants.json");
+from util => root => data => restaurants.json
+
+#creating a new folder 'routes'

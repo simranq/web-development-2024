@@ -1,5 +1,6 @@
 [
   {
+    "id": "r1",
     "name": "Delhi Darbar",
     "address": "Kashimira, Thane - 401107, India",
     "cuisine": "Mughlai",
@@ -7,6 +8,7 @@
     "description": "Delicious cuisine, Best service quality👌🏼👌🏼\r\nHighly Recommended - 8/10"
   },
   {
+    "id": "r2",
     "name": "Test2",
     "address": "testcity2",
     "cuisine": "Italian",
@@ -14,10 +16,19 @@
     "description": "It is lit!"
   },
   {
+    "id": "r3",
     "name": "Restaurant3",
     "address": "Awesome Street 3, My City",
     "cuisine": "Indian",
     "website": "https://www.xyz.com",
     "description": "Awesome cuisine of another level, definitely recommend!"
+  },
+  {
+    "name": "Hotel Daffodils",
+    "address": "Greatstreet 5, Munich",
+    "cuisine": "German",
+    "website": "https://munich-awesome.com",
+    "description": "It's in Munich, that's where I live😊",
+    "id": "5f431c4f-32b8-4c57-bbaf-ff7a1b908a97"
   }
 ]

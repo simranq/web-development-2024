@@ -1,0 +1,47 @@
+client-side scripting
+html
+css
+javascript
+server-side capabilities
+storing data in db
+ex-form actins attr
+store uploaded files like pfp on social media
+sending customized data to different users based off of their data ex - amazon=> generating diff html responses for diff visitors
+
+How the web works?
+request & response
+static websites consist of only html, css & javascript
+dynamic websites
+browser instructions-2 ways/options
+		 |-->  1] FRONTEND CODE - write all instr. urself(i.e. html, css, javascript)
+	FULLSTACK|
+		 |--> **2] BACKEND CODE - write server-side code that generates the browser instructions(html,css js) dynamically.**
+when to use which one wali feeling after some experience i'll know!
+abhi kliy, aise krna h.
+
+backend langs
+python
+php->'super popular in early 2000s-2010s, still'
+C#
+***NodeJS(JavaScript)***
+Java
+many didn't fit but many do
+
+
+
+***NodeJS(JavaScript)***
+			It is a javascript runtime => tool for executing js code outside browser
+
+DETAILS ON NodeJS
+			-> is JavaScript outside the browser. JS is used to add interactivity to the website. JS is built in chrome.
+			->it is JS for d server-side
+			->It is JS engine taken outside from Chrome.(itta hi smjha)...iske wajah se features aur aaye h like read+write files,
+			parse incoming rquests, send responses,...
+			-> since it doesn't exec on a browser, there is NO DOM. Hence, html elements can't be selected & changed cuz it is now decoupled from a browser.
+			->you write code i.e. is standalone on comp/server.
+
+USING STATUS CODES
+200 - success! req parsed successfully, a response could be generated + sent w/o any problems
+404 - client-side error! the requested url/resource wasn't found. hence the expected response could not be generated.
+401 - client-side error! the requesting client(user) isn't authorized to access the requested resource/url(e.g.- bcz not logged in)
+500 - server-side error! the req was valid but something went wrong on d server,hence, d expected response couldn't be generated.

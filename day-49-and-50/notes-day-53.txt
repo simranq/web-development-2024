@@ -1,0 +1,125 @@
+---TOPICS LEARNT----
+DYNAMIC routes
+ERROR HANDLING / UNFOUND RESOURCES
+SPLIT CODE INTO FILES & FUNCTIONS
+EXPRESS ROUTER
+-------
+
+OLD CODE :
+---
+const fs = require("fs");
+const path = require("path");
+
+const express = require("express");
+const uuid = require("uuid");
+
+const app = express();
+
+const resData = require('./util/restaurant-data')
+
+//CONFIGURES SETTINGS FOR EXPRESS APPLICATIONS
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+// Register a special middleware as css files & js files are static. To return these (css & js)
+
+app.use(express.static("public")); // has obj like properties
+app.use(express.urlencoded({ extended: false }));
+
+app.get("/", function (req, res) {
+  res.render("index"); //since we used ejs on line 9, thus, no extension req (i.e. 'index.ejs')
+});
+
+// SENDING HTML FILES AS RESPONSES (as dynamic)
+
+app.get("/restaurants", function (req, res) {
+  const storedRestaurants = resData.getStoredRestaurants();
+
+  res.render("restaurants", {
+    numberOfRestaurants: storedRestaurants.length,
+    restaurants: storedRestaurants,
+  });
+});
+
+//dynamic route refer day 51 pt II
+
+app.get("/restaurants/:id", function (req, res) {
+  // use of ':' => /restaurants/r1
+  const restaurantId = req.params.id;
+
+  const storedRestaurants = resData.getStoredRestaurants();
+
+  for (const restaurant of storedRestaurants) {
+    if (restaurant.id === restaurantId) {
+      return res.render("restaurant-detail", { restaurant: restaurant });
+    }
+  }
+  
+  res.render("404");
+});
+
+app.get("/recommend", function (req, res) {
+  res.render("recommend");
+});
+
+app.post("/recommend", function (req, res) {
+  const restaurant = req.body; //after this line 10 was written
+  restaurant.id = uuid.v4();
+  const restaurants = resData.getStoredRestaurants();
+  restaurants.push(restaurant);
+  storeRestaurants(restaurants);  //refactored code
+  res.redirect("/confirm");
+});
+
+app.get("/confirm", function (req, res) {
+  res.render("confirm");
+});
+
+app.get("/about", function (req, res) {
+  res.render("about");
+});
+
+//we are gonna create a custom middleware here and not add next to the other middleware
+//right before we listen at the bottom..why at the bottom??-> because requests are basically funnelled through
+// (up-to-down) all these functions and all these routes
+//So, if a new request reaches our server then first it funnels through these middlewares and then it checks all the
+// routes and which one should handle it!
+//404 error handling below
+
+app.use(function(req, res){
+
+});
+
+//middleware that'll be exec if any error occurs
+//function() here is different with 4 parameters(error, req, res, next) as it signals to express that this is 
+// that special default error handler middleware fxn
+// next is applicable for all mwares but it is a lil adv concept, next()..
+
+app.use(function(error, req, res, next){
+  res.status(500).render('500');   //refer 404 error handling
+
+});
+
+app.listen(3000);
+--------
+Now, we're going to optimize the code further on by updating all the routes in the routes folder.
+defaultRoutes & app.use() helped us to achieve this.
+# Query parameters 
+sorting restaurants in asc/desc order-
+-----------------------------------
+    storedRestaurants.sort ( function( resA, resB ) {
+        if (resA.name > resB.name) {
+            return 1
+        }
+        return -1
+    });
+------------------------------------
+    then,
+    in views >  restaurants.ejs, we made these changes
+                            <form action="/restaurants" method="GET">
+                              <input type="hidden" value="asc" name="order">
+                              <button class ="btn">Change Order</button>
+                            </form>
+
+This is the query parameter result->  http://localhost:3000/restaurants?order=asc

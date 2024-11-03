@@ -1,0 +1,79 @@
+body
+{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:aliceblue(238, 244, 180);
+    line-height:1.6;
+    margin:40px;
+    padding:0;
+}
+h1,h2
+{
+    font-weight:700;
+}
+p
+{
+    font-weight:400;
+    
+}
+a
+{
+    color:goldenrod;
+    text-decoration: none;
+}
+a:hover
+{
+    color:goldenrod;
+    text-decoration: underline;
+}
+header
+{
+    background: linear-gradient(to right,#bebbed69,rgb(173, 230, 171) );
+    color:azure;
+    padding: 40 px 0;
+    text-align:center;
+}
+section
+{
+    padding: 20 px;
+    text-align:center;
+}
+img
+{
+    width: 200px;
+    height: 200px;
+    border-radius:50%;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0,2);
+    object-fit:cover;
+}              
+form
+{
+    max width: 500px;
+    margin:20px auto;
+    padding:20 px;
+    background:white;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0,1);
+}
+form input[type="text"],
+form input[type="email"],
+form textarea
+{
+    width:calc(100%-20px);
+    padding:10px;
+    margin-bottom:20px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+form button
+{
+    background: lightskyblue;
+    color:white;
+    border:0;
+    padding:10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+form button:hover
+{
+    background: blue;
+}
