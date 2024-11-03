@@ -1,0 +1,17 @@
+ADV JAVASCRIPT
+- MORE ON FUNCTIONS & WORKING WITH OBJECTS / ARRAYS
+- REFERENCE V/S PRIMITIVE VALUES
+- ASYNCHRONOUS CODE
+-----------------------
+videos : 383 - 388
+
+console.log(`${greetingPrefix}! ${userName}`);
+till 387 done
+
+Scoping means that it can be used in certain places.
+ex - we can't use a module unless we use module.exports = {..} //in node only
+
+Block specific scoping- specified within curly braces ({})
+-------
+Synchronous means : This operation must be completed before following operations(code) can be 
+started & executed.

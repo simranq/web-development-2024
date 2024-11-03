@@ -30,11 +30,11 @@ readFile();
 
 
 //VARIABLE SCOPING
-const fs = require('fs');
+// const fs = require('fs');
 function readFile() {
     let fileData;
     try {
-    fileData = fs.readFileSync('data.json');
+     fileData = fs.readFileSync('data.json');
     }catch{
         console.log('An error has occurred.');
     }
@@ -42,4 +42,13 @@ function readFile() {
     console.log('Hi there !');
 };
 
+//shadowing - same name like 
+let outerVariable = 'outer';
 
+function example() {
+    let outerVariable = 'inner'; // This shadows the outerVariable
+    console.log(outerVariable); // Outputs: 'inner'
+}
+
+example();
+console.log(outerVariable); // Outputs: 'outer'
