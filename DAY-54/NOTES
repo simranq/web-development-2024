@@ -7,3 +7,8 @@ videos : 383 - 388
 
 console.log(`${greetingPrefix}! ${userName}`);
 till 387 done
+
+Scoping means that it can be used in certain places.
+ex - we can't use a module unless we use module.exports = {..} //in node only
+
+Block specific scoping- specified within curly braces ({})
