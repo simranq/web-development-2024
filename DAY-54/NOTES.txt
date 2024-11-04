@@ -14,4 +14,12 @@ ex - we can't use a module unless we use module.exports = {..} //in node only
 Block specific scoping- specified within curly braces ({})
 -------
 Synchronous means : This operation must be completed before following operations(code) can be 
-started & executed.
+started & executed. It’s like a single-lane road where only one car can pass at a time. Everything happens in 
+order, which can make things predictable but sometimes slow, especially if one task takes a long time.
+
+Asynchronous means : Opns can be executed simultaneously with other opns. 
+It doesn't block the execution of following code.In programming, "asynchronous" means that tasks can be executed independently of each other.
+This allows multiple tasks to run concurrently without waiting for each other to complete. It’s like a multi-lane highway where cars can overtake each other, making it much more efficient for handling
+multiple tasks at once.
+
+In JAVASCRIPT, we've a built-in stadardized objects called 'PROMISES' that can wrap async operations.
