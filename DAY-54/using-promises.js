@@ -21,3 +21,4 @@ readFile();
 //same o/p but advantage is more structured code, you can add more async opns like line 8-9 above.
 //errors could occur, we can't use try, catch, callback function here. Instead use error parameter in async
 //for errors in promises try, catch
+// async, await helps in making asynchronous code more readable

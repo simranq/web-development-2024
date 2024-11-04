@@ -27,4 +27,5 @@ In JAVASCRIPT, we've a built-in stadardized objects called 'PROMISES' that can w
 # async and await are syntax sugar built on top of Promises, making asynchronous code easier to write and read.
 
 #1 async is a keyword you place before a function to make it return a Promise. Any function you define with async will implicitly return a Promise. If it returns a value, that value is wrapped in a resolved Promise.
-#2 await is used inside an async function to pause execution until a Promise is resolved. It makes your asynchronous code look synchronous, making it easier to read and understand.
+#2 await is used inside an async function to pause execution until a Promise is resolved. 
+It makes your asynchronous code look synchronous, making it easier to read and understand.
