@@ -23,4 +23,13 @@ data redundancy
 Store more info in few tables and fetch more info using fewer queries
 --------------------------
 Which one should one choose ?
-points - no. of queries, how often read/write, data storing
+points - no. of queries, how often read/write, data 
+SQL dbs provide more structure and rules
+NoSQL dbs can be more flexible and reduce amount of required queries
+Scalability can become an issue with SQL databases
+-------------------------------------------------------------
+-------------------------------------------------------------
+MODULE CONTENT
+- How SQL databases are designed and work
+- Defining data schemas and tables
+- Querying data (CRUD operations)
