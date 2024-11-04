@@ -1,0 +1,26 @@
+DAY - 56, 57
+MODULE CONTENT
+- WHAT & WHY ?
+- SQL vs NoSQL DATABASES
+NEED - stored data in afile abhi tak read & fetch data from a file, but it is not great
+create data->replace entire content in file with new content
+read data   -> always read entire file
+update data -> read entire data, find content to update, replace entire content.
+delete data -> read entire content, find content to pdate, replace entire content
+                ----pretty inefficient, scalability issue, cconcurrency issue----
+CRUD operations
+Databases systems to the rescue!
+
+2 TYPES OF DATABASES - RDBMS / SQL Databases, Non RDBMS / NoSQL Databases
+-----------------------------------------------------------------------------------------
+SQL DATABASES
+Store normalized data across multiple tables.
+Clearly defined schemas and datatypes.
+--------------------------
+NoSQL DATABASES
+Store data in JSON format (objects, docs not rows and columns)
+data redundancy
+Store more info in few tables and fetch more info using fewer queries
+--------------------------
+Which one should one choose ?
+points - no. of queries, how often read/write, data storing
