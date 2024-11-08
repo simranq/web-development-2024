@@ -1,0 +1,10 @@
+THE IDEA BEHIND NoSQL DATABASE SYSTEMS
+Stores data in JSON format, unstructured, hard to query, slow.
+Here, we don't work with cols & rows rather with Collections and Collections contain Documents ( pieces of data with key-value pairs, unstructured )
+It does support related data.
+instead of normalized tables related tables are nested altogether.
+Install MongoDB, MongoShell
+CRUD operations
+---------
+Now, same blog website using NoSQL.
+NodeJS + MongoDB

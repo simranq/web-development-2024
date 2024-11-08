@@ -1,0 +1,15 @@
+Let's plan our database structure !
+
+Collections (Posts, Authors):-
+
+Posts - id, title, summary, body, author_id & name -> authors.id, date
+Authors - id, name, email  //#(pre-populated)# 
+
+Note that the project is same, but we are implementing it using MongoDB (NoSQL) database.
+
+
+const client = await MongoClient.connect('mongodb://127.0.0.1:27017');
+We are going to use a 3rd party package so that we dont havta manage the connection by ourself - 
+'MongoDB Node Driver'. Connect MongoDB from inside NodeJS
+terminal-> 'npm install mongodb@6.10'
+
