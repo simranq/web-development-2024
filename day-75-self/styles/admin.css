@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    background-color: rgb(229, 221, 240);
+    color: #333;
+}
+
+.admin-card {
+    height: 270px;
+    width: 300px;
+    margin: 2rem auto;
+    display: block;
+    color: #fff;
+    background: linear-gradient(to right, #c2b4e2, #ecf0b4);
+    padding: 2rem;
+    box-shadow: 2px 4px 8px rgb(18, 18, 20);
+    border-radius: 8px;
+}
+
+.posts-card {
+    margin-top: 5rem;
+    display: block;
+    color: #fff;
+    background: linear-gradient(to right, #c2b4e2, #ecf0b4);
+    padding: 2rem;
+    box-shadow: 2px 4px 8px rgb(18, 18, 20);
+    border-radius: 8px;
+}
+
+.posts {
+    display: none;
+}
+
+form label, input {
+    margin-left: 2rem;
+    display: block;
+}
+
+#postTitle, #postContent {
+    width: 250px;
+}
+
+#postContent {
+    height: 100px;
+}
+
+.save-btn {
+    display: block;
+    height: 35px;
+    width: 80px;
+    font-size: 22px;
+    border-radius: 8px;
+    background-color: #fae33c;
+    margin: 2rem auto;
+}
+
+.save-btn:hover {
+    cursor: pointer;
+    background-color: #f1d604;
+}
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+    .admin-card, .posts-card {
+        width: 90%;
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    form label, input {
+        margin-left: 1rem;
+    }
+
+    #postTitle, #postContent {
+        width: 90%;
+    }
+
+    .save-btn {
+        width: 60%;
+        font-size: 18px;
+        margin: 1rem auto;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .admin-card, .posts-card {
+        width: 80%;
+        margin: 1.5rem auto;
+        padding: 1.5rem;
+    }
+
+    form label, input {
+        margin-left: 1.5rem;
+    }
+
+    #postTitle, #postContent {
+        width: 80%;
+    }
+
+    .save-btn {
+        width: 70%;
+        font-size: 20px;
+        margin: 1.5rem auto;
+    }
+}
+
+@media screen and (min-width: 901px) {
+    .admin-card, .posts-card {
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+}

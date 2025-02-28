@@ -1,0 +1,17 @@
+{
+  "name": "web-devt-day-60",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Simran Qureshi",
+  "license": "ISC",
+  "description": "Blog posts and achieving database connectivity",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.4",
+    "uuid": "^10.0.0"
+  }
+}

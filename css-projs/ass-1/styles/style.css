@@ -1,0 +1,93 @@
+
+body{
+    background-color:rgba(234, 190, 171, 0.514) ;
+    text-align: center;
+    color: rgb(83,75,75);
+}
+
+main{
+    
+}
+
+#description{
+    padding:5px;
+    display: inline-block;
+}
+/*header{
+    background-color: rgb(225, 244, 20);
+    display:block;
+    margin:0px;
+}*/
+h1{
+    font-weight: bolder;
+    margin: 12px;
+    font-family :'Boogaloo';
+    text-decoration: wavy;
+    color:white;
+    padding: 3px 3px;
+}
+p{
+    margin:4px 8px 4px 8px;
+    font-family: 'Jersey 20' ,sans-serif;
+}
+
+span{
+    color: yellowgreen;
+}
+
+li{
+    color: rgb(138, 97, 80);
+    background-color: rgb(224, 151, 119);
+    font-family: 'Jersey 20' ,sans-serif;
+    font-size: 15px;
+    list-style: none;
+    padding: 1px;
+    border-radius: 6px;
+    margin:20px;
+    display: inline-block;
+    box-shadow: 5px 5px 1px;
+}
+header p{
+    margin-bottom: 36px;
+}
+
+a{
+    margin: 30px 0px;
+    font-family: 'Jersey 20' ,sans-serif;
+    text-decoration: none;
+   /* color:rgb(184, 240, 56);*/
+    font-weight: bold;
+  /*  font-size: 25px;  */
+    background-color:white;
+    padding:0px;
+    border-radius: 5px;
+  
+    /*border: 1px solid #000;*/
+   /* background-color: rgb(167,145,243);*/
+}
+a:hover{
+    color:rgb(234,56,15);
+    text-decoration:solid;
+}
+img{
+    height: 300px;
+    width: 300px;
+    border-radius: 200px;
+   
+}
+#todays-challenge{
+    font-size:35px;
+    font-weight:bold;
+    color:rgb(134, 30, 30);
+
+}
+h2{
+    color:rgb(184, 240, 56);
+}
+/* main p{
+    margin:10px;
+} */
+.daily-goal{
+    background-color: rgb(239, 138, 94);
+    
+}

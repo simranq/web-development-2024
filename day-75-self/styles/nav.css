@@ -1,0 +1,33 @@
+/* Global Nav Stylings */
+nav {
+    display: flex;
+    justify-content: center; /* Centers across all pages */
+    align-items: center;
+    background-color: #ff7f50;
+    color: #fff;
+    padding: 1rem;
+    border: 2px solid #ee7181;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0 1rem; /* Consistent spacing */
+}
+
+/* Media Queries */
+@media screen and (max-width: 800px) {
+    nav ul {
+        flex-direction: column; /* Stack nav items */
+        align-items: center;
+    }
+
+    nav li {
+        margin: 1rem 0; /* Add vertical spacing */
+    }
+}

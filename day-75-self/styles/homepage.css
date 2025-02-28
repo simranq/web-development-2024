@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    background-color: #c2b4e2;
+    color: #333333;
+}
+
+header {
+    margin: 2rem;
+    color: #ee7181;
+    font-size: 1.5rem;
+}
+
+header a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    padding: 0 2rem;
+    background-color: #ff7f50; /* Bright background for visibility */
+    color: #ffffff;
+    border: 2px solid #ee7181;
+    padding: 1rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column; /* Default to column for small screens */
+    align-items: center;
+    width: 100%; /* Ensure full width */
+}
+
+nav li {
+    margin: 1rem 0; /* Spacing between elements */
+    padding: 0;
+}
+
+.error {
+    color: #ee2742;
+}
+
+.welcome-container {
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.welcome {
+    height: 18rem;
+    border-radius: 50%;
+    margin-top: -7rem;
+}
+
+.visible-nav {
+    background-color: #ff7f50;
+    border: 2px solid #ee7181;
+}
+
+#navigate:hover {
+    height: 50px;
+    border: 1px solid #ee7181;
+    border-radius: 5px;
+}
+
+#welcome {
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+#logo {
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+    width: 100px;
+}
+
+#error-img {
+    height: 400px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+/* Media Queries */
+@media screen and (min-width: 320px) and (max-width: 800px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    .visible-nav {
+        width: 34rem;
+    }
+
+    nav {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    nav ul {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 0 1rem;
+    }
+}

@@ -1,0 +1,8 @@
+WRITING MAINTAINABLE CODE & THE MVC PATTERN
+
+- WHAT'S THE PROBLEM WITH OUR CODE?
+- KEEP YOUR CODE ORGANIZED
+- CODE REFACTORING
+- MVC PATTERN
+--------------------------------------------------------
+CODE REFACTORING - Split up too large code files into smaller code files for code maintenance

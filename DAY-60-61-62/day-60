@@ -1,0 +1,6 @@
+Blog 
+DATABASE STRUCTURE
+-> POSTS
+        id, title, summary, body, date, author_id
+-> AUTHORS
+        id, name , email

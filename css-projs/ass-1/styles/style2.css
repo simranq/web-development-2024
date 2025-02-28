@@ -1,0 +1,30 @@
+main{
+    width: 800px;
+    margin: 200px auto 72px auto;
+    padding:35px;
+    background-color: rgba(61, 23, 122, 0.747);
+    border: 3px solid rgb(44,44,44);
+    border-radius: 8px;
+    box-shadow:2px 1px 4px rgba(0,0,0,5);
+    font-size: 20px;
+}
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin-top :-150px;
+    
+}
+span{
+    color: yellowgreen;
+}
+#todays-challenge{
+    color:rgb(170, 96, 83);
+    font-weight: bold;
+    font-size: 60px;
+    
+}
+/*.pngcontainer{
+     ;
+    background-color: rgba(123, 72, 174, 0.747);
+}*/

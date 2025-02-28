@@ -1,0 +1,181 @@
+      USER AUTHENTICATION / LOGIN
+===========================================
+
+- WHAT IS "AUTHENTICATION"?
+- IMPLEMENTING SIGNUP & LOGIN
+- UNDERSTANDING SESSIONS & COOKIES
+
+===========================================
+
+ WHAT IS "AUTHENTICATION"?
+ In many websites, certain areas (pages) should only be accessible only by authenticated (=logged in) users.
+ sign up -> login -> authentication
+
+If we store data simply, data might get compromised and breached, resulting in hacking.
+thus 'HASHING THE PASSWORDS' is crucial.
+
+PASSWORD HASHING (achieved using bcryptjs)
+
+- to render security-relevant data (like pswd) useless in case of a data breach, you should hash it.
+- Hashing = Converting a string (password) to a non-decodable, different string.
+- Hashing Algorithm eg: "myplaintextpassword" => "ljdsokfd03305wv..."
+    Thus, securely hashed values can't be reverted, decoded, or transformed back into the original value.
+
+This line 'bcrypt,compare(unhashed_value , hashed_value;)', is used to check wheteher stored password == entered password
+
+INTRODUCTION TO SESSIONS AND COOKIES
+Ever incoming req is similar to the web server and thus the server-side code can't find out if a user should be grante access or not. 
+An "entry ticket" must be saved on the server & handled out to the visitor.
+
+TRACKING USER AUTHENICATION STATUS WITH "SESSIONS"
+Session is record/document with only a few pieces of trivial data stored in db with unique ID.
+every visitor of website will receive their own unique session.
+Cookie->automatically managed data storage in the browser, stores session id in browser
+
+The session cookie is a long-lived cookie and doesn't change randomly.
+They are not exclusively used for authentication but for tracking, advertisemrnts,etc.
+
+Sessions are server - side constructs stored on server - side. 
+
+- Unauthenticated users can also be assigned sessions
+- The data stored in a session (eg- "isAuthenticated:true") matters
+
+-------------------------------------------------------------------------------------------
+
+Cookies are client - side constructs stored on client - side.
+
+- Cookies are also used for user tracking etc
+- Cookies can be combined with sessions - but don't have to
+
+=================================
+WORKING WITH SESSIONS & COOKIES
+=================================
+
+You can create & use sessions and cookies on your own - for authentication or other purposes.
+Typically, you use 3rd party packages:
+ express-session => Sessions
+ cookie-parser   => Cookies
+
+# Cookies
+sent as metadata Set-Cookie = identifier-value in headers
+also Cookie = identifier-vale also sent as request headers
+
+302-redirecting status code
+403-authenticated but not authorized
+
+-------------------------------------------------------------------------------------------------------------
+#                        AUTHENTICATION VS AUTHORIZATION
+-------------------------------------------------------------------------------------------------------------
+AUTHENTICATION - signup + login with credentials
+                when logged in, user is autenticated and tey then may access restricted resources
+                
+                email - alice1234@gmail.com , password - alicia
+
+AUTHORIZATION - even authenticated users may not be allowed to access everything on a website
+                eg - not all authenticated users are authorized to access your online shop order history
+
+                email - nonauthorized@test.com , password - lololol
+
+-----------------------------------------------------------------------------------------------------------
+
+router.post("/login", async function (req, res) {
+  const userData = req.body;
+  const enteredEmail = userData.email;
+  const enteredPassword = userData.password;
+
+  const existingUser = await db
+    .getDb()
+    .collection("users")
+    .findOne({ email: enteredEmail });
+
+  if (!existingUser) {
+    req.session.inputData = {
+      hasError: true,
+      message: "Could not log you in - please check your credentials!",
+      email: enteredEmail,
+      password: enteredPassword,
+    };
+    req.save(function () {
+      res.render("login");
+    });
+    return;
+  }
+
+  const passwordsAreEqual = await bcrypt.compare(
+    enteredPassword,
+    existingUser.password
+  );
+
+  if (!passwordsAreEqual) {
+    console.log("Could not log in - passwords mismatch");
+    return res.redirect("/login");
+  }
+
+  // console.log("User is authenticated successfully ! ");
+  // session is defined in 'app.js'
+
+  req.session.user = {
+    id: existingUser._id,
+    email: existingUser.email,
+    // isAdmin: existingUser.isAdmin,
+  }; // userdata in 'sessions' collection are authenticated
+
+  req.session.isAuthenticated = true;
+  req.session.save(function () {
+    // res.redirect("/admin"); // since db opns are async opns
+    res.redirect("/profile");
+  });
+});
+------------------------------------------------------------------------------------------------------
+
+router.post('/login', async function (req, res) {
+  const userData = req.body;
+  const enteredEmail = userData.email;
+  const enteredPassword = userData.password;
+
+  const existingUser = await db
+    .getDb()
+    .collection('users')
+    .findOne({ email: enteredEmail });
+
+  if (!existingUser) {
+    req.session.inputData = {
+      hasError: true,
+      message: 'Could not log you in - please check your credentials!',
+      email: enteredEmail,
+      password: enteredPassword,
+    };
+    req.session.save(function () {
+      res.redirect('/login');
+    });
+    return;
+  }
+
+  const passwordsAreEqual = await bcrypt.compare(
+    enteredPassword,
+    existingUser.password
+  );
+
+  if (!passwordsAreEqual) {
+    req.session.inputData = {
+      hasError: true,
+      message: 'Could not log you in - please check your credentials!',
+      email: enteredEmail,
+      password: enteredPassword,
+    };
+    req.session.save(function () {
+      res.redirect('/login');
+    });
+    return;
+  }
+
+  req.session.user = { id: existingUser._id, email: existingUser.email };
+  req.session.isAuthenticated = true;
+  req.session.save(function () {
+    res.redirect('/profile');
+  });
+});
+
+-------------------------------------------------------------------------------------------
+res.locals in app.js
+locals.some-key in views<includes<header.ejs

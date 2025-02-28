@@ -1,0 +1,745 @@
+Please enter a MongoDB connection string (Default: mongodb://localhost/): test
+test
+Current Mongosh Log ID: 672c722efbc84a5c6f0d818f
+Connecting to:          mongodb://127.0.0.1:27017/test?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.3
+Using MongoDB:          8.0.3
+Using Mongosh:          2.3.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-11-07T12:48:10.849+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test>
+
+test>
+
+test> show dbs
+admin   40.00 KiB
+config  12.00 KiB
+local   40.00 KiB
+test>
+
+test> clear
+ReferenceError: clear is not defined
+test> show dbs
+admin   40.00 KiB
+config  60.00 KiB
+local   40.00 KiB
+test> use ratingportal
+switched to db ratingportal
+ratingportal> show dbs
+admin   40.00 KiB
+config  60.00 KiB
+local   40.00 KiB
+ratingportal> db.restaurants.insertOne( { name: "Munich Schnitzelhouse",address: { street: "Some Street 5", streetNumber: "23C"  } } )
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c7a6efbc84a5c6f0d8190')
+}
+ratingportal> db.restaurants.find
+[Function: find] AsyncFunction {
+  returnsPromise: true,
+  apiVersions: [ 1, Infinity ],
+  returnType: 'Cursor',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+ratingportal> db.restaurants.find()
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  }
+]
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal> db.restaurants.find({address})
+ReferenceError: address is not defined
+ratingportal> db.restaurants.find({name})
+ReferenceError: name is not defined
+ratingportal> db.restaurants.find({street:"Some Street 5"})
+
+ratingportal> db.restaurants.find({street:"Some Street 5"})
+
+ratingportal> db.restaurants.find({name: "Munich Schnitzelhouse"})
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  }
+]
+ratingportal> db.restaurants.find({address:{street:"Some Street 5"}})
+
+ratingportal> db.restaurants.find({address: {street:"Some Street 5"}})
+
+ratingportal> db.restaurants.find({name: "Munich Schnitzelhouse"})
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  }
+]
+ratingportal> db.restaurants.find({}, {name:1})
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse'
+  }
+]
+ratingportal> db.restaurants.find({}, {name:1,_id:0})
+[ { name: 'Munich Schnitzelhouse' } ]
+ratingportal> db.restaurants.find({}, {name:1,_id:0,address:1})
+[
+  {
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  }
+]
+ratingportal> db.restaurants.find({}, {name:1,_id:0,address[0]:1})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:45)
+
+> 1 | db.restaurants.find({}, {name:1,_id:0,address[0]:1})
+    |                                              ^
+  2 |
+
+ratingportal> db.restaurants.find({}, {name:1,_id:0,address:1})
+[
+  {
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  }
+]
+ratingportal> db.restaurants.insertOne( { name: "Burger House",address: { street: "Lavoise Street", streetNumber: "16A"  } } )
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c8152fbc84a5c6f0d8191')
+}
+ratingportal> db.restaurants.find({}, {name:1,_id:0,address:1})
+[
+  {
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  },
+  {
+    name: 'Burger House',
+    address: { street: 'Lavoise Street', streetNumber: '16A' }
+  }
+]
+ratingportal> db.restaurants.insertOne( { name: "Nina's Cafe",address: { street: "Halaru Walk", streetNumber: "17D"  } } )
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c817efbc84a5c6f0d8192')
+}
+ratingportal> db.restaurants.find({}, {name:1,_id:0,address:1})
+[
+  {
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  },
+  {
+    name: 'Burger House',
+    address: { street: 'Lavoise Street', streetNumber: '16A' }
+  },
+  {
+    name: "Nina's Cafe",
+    address: { street: 'Halaru Walk', streetNumber: '17D' }
+  }
+]
+ratingportal> db.restaurants.find({}, {name:"Nina's Cafe",_id:1,address:1})
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    address: { street: 'Some Street 5', streetNumber: '23C' },
+    name: "Nina's Cafe"
+  },
+  {
+    _id: ObjectId('672c8152fbc84a5c6f0d8191'),
+    address: { street: 'Lavoise Street', streetNumber: '16A' },
+    name: "Nina's Cafe"
+  },
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    address: { street: 'Halaru Walk', streetNumber: '17D' },
+    name: "Nina's Cafe"
+  }
+]
+ratingportal> db.restaurants.find({}, {name:"Nina's Cafe"})
+[
+  { _id: ObjectId('672c7a6efbc84a5c6f0d8190'), name: "Nina's Cafe" },
+  { _id: ObjectId('672c8152fbc84a5c6f0d8191'), name: "Nina's Cafe" },
+  { _id: ObjectId('672c817efbc84a5c6f0d8192'), name: "Nina's Cafe" }
+]
+ratingportal> db.restaurants.find()
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  },
+  {
+    _id: ObjectId('672c8152fbc84a5c6f0d8191'),
+    name: 'Burger House',
+    address: { street: 'Lavoise Street', streetNumber: '16A' }
+  },
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    name: "Nina's Cafe",
+    address: { street: 'Halaru Walk', streetNumber: '17D' }
+  }
+]
+ratingportal> db.restaurants.find({_id: ObjectId('672c7a6efbc84a5c6f0d8190'})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:61)
+
+> 1 | db.restaurants.find({_id: ObjectId('672c7a6efbc84a5c6f0d8190'})
+    |                                                              ^
+  2 |
+
+ratingportal> db.restaurants.find({_id: ObjectId('672c7a6efbc84a5c6f0d8190')})
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  }
+]
+ratingportal> db.restaurants.find({_id: ObjectId('672c7a6efbc84a5c6f0d8192')})
+
+ratingportal> db.restaurants.find({_id: ObjectId('672c817efbc84a5c6f0d8192')})
+[
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    name: "Nina's Cafe",
+    address: { street: 'Halaru Walk', streetNumber: '17D' }
+  }
+]
+ratingportal> db.restaurants.updateOne({ _id: ObjectId('672c817efbc84a5c6f0d8192' },{})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:68)
+
+> 1 | db.restaurants.updateOne({ _id: ObjectId('672c817efbc84a5c6f0d8192' },{})
+    |                                                                     ^
+  2 |
+
+ratingportal> db.restaurants.updateOne({ _id: ObjectId('672c817efbc84a5c6f0d8192') },{})
+MongoInvalidArgumentError: Update document requires atomic operators
+ratingportal> db.restaurants.updateOne({ _id: ObjectId('672c817efbc84a5c6f0d8192') },{})
+MongoInvalidArgumentError: Update document requires atomic operators
+ratingportal>
+
+ratingportal>
+
+ratingportal> db.restaurants.updateOne({ _id: ObjectId('672c817efbc84a5c6f0d8192') },{ $set: { "address.street":"Leopold Strasse"  } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+ratingportal> db.restaurants.find({_id: ObjectId('672c817efbc84a5c6f0d8192')})
+[
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    name: "Nina's Cafe",
+    address: { street: 'Leopold Strasse', streetNumber: '17D' }
+  }
+]
+ratingportal> db.restaurants.updateOne({ _id: ObjectId('672c817efbc84a5c6f0d8192') },{ $set:{ name:"Cafe de La LuMierre"  } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+ratingportal> db.restaurants.find({_id: ObjectId('672c817efbc84a5c6f0d8192')})
+[
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    name: 'Cafe de La LuMierre',
+    address: { street: 'Leopold Strasse', streetNumber: '17D' }
+  }
+]
+ratingportal> db.restaurants.find()
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  },
+  {
+    _id: ObjectId('672c8152fbc84a5c6f0d8191'),
+    name: 'Burger House',
+    address: { street: 'Lavoise Street', streetNumber: '16A' }
+  },
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    name: 'Cafe de La LuMierre',
+    address: { street: 'Leopold Strasse', streetNumber: '17D' }
+  }
+]
+ratingportal> db.restaurants.find({_id: ObjectId('672c817efbc84a5c6f0d8192')})
+[
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    name: 'Cafe de La LuMierre',
+    address: { street: 'Leopold Strasse', streetNumber: '17D' }
+  }
+]
+ratingportal> db.restaurants.find()
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  },
+  {
+    _id: ObjectId('672c8152fbc84a5c6f0d8191'),
+    name: 'Burger House',
+    address: { street: 'Lavoise Street', streetNumber: '16A' }
+  },
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    name: 'Cafe de La LuMierre',
+    address: { street: 'Leopold Strasse', streetNumber: '17D' }
+  }
+]
+ratingportal> db.restaurants.insertOne( { name: "Dummy_name",address: { street: "Some Street ", streetNumber: "12"  } } )
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c8ffffbc84a5c6f0d8193')
+}
+ratingportal> db.restaurants.deleteOne({ id: ObjectId('672c8ffffbc84a5c6f0d8193')  })
+{ acknowledged: true, deletedCount: 0 }
+ratingportal> db.restaurants.find()
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  },
+  {
+    _id: ObjectId('672c8152fbc84a5c6f0d8191'),
+    name: 'Burger House',
+    address: { street: 'Lavoise Street', streetNumber: '16A' }
+  },
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    name: 'Cafe de La LuMierre',
+    address: { street: 'Leopold Strasse', streetNumber: '17D' }
+  },
+  {
+    _id: ObjectId('672c8ffffbc84a5c6f0d8193'),
+    name: 'Dummy_name',
+    address: { street: 'Some Street ', streetNumber: '12' }
+  }
+]
+ratingportal> db.restaurants.deleteOne({ id: ObjectId('672c8ffffbc84a5c6f0d8193') })
+{ acknowledged: true, deletedCount: 0 }
+ratingportal> db.restaurants.deleteOne({_id: ObjectId('672c8ffffbc84a5c6f0d8193') })
+{ acknowledged: true, deletedCount: 1 }
+ratingportal> db.restaurants.find()
+[
+  {
+    _id: ObjectId('672c7a6efbc84a5c6f0d8190'),
+    name: 'Munich Schnitzelhouse',
+    address: { street: 'Some Street 5', streetNumber: '23C' }
+  },
+  {
+    _id: ObjectId('672c8152fbc84a5c6f0d8191'),
+    name: 'Burger House',
+    address: { street: 'Lavoise Street', streetNumber: '16A' }
+  },
+  {
+    _id: ObjectId('672c817efbc84a5c6f0d8192'),
+    name: 'Cafe de La LuMierre',
+    address: { street: 'Leopold Strasse', streetNumber: '17D' }
+  }
+]
+ratingportal> simran is a hacker? is she??
+Uncaught:
+SyntaxError: Missing semicolon. (1:6)
+
+> 1 | simran is a hacker? is she??
+    |       ^
+  2 |
+
+ratingportal> simran is a hacker? is she??
+Uncaught:
+SyntaxError: Missing semicolon. (1:6)
+
+> 1 | simran is a hacker? is she??
+    |       ^
+  2 |
+
+ratingportal> simran is a hacker? is she??
+Uncaught:
+SyntaxError: Missing semicolon. (1:6)
+
+> 1 | simran is a hacker? is she??
+    |       ^
+  2 |
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal>
+
+ratingportal> db.restaurants.find({}, {name:1,_id:0,address:1}
+ratingportal> db.types.insertOne( {name: "German"}  )
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c93aafbc84a5c6f0d8194')
+}
+ratingportal> db.types.insertOne( {name: "Italian"}  )
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c93b5fbc84a5c6f0d8195')
+}
+ratingportal> db.types.insertOne( {name: "American"}  )
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c93bffbc84a5c6f0d8196')
+}
+ratingportal> db.types.find()
+[
+  { _id: ObjectId('672c93aafbc84a5c6f0d8194'), name: 'German' },
+  { _id: ObjectId('672c93b5fbc84a5c6f0d8195'), name: 'Italian' },
+  { _id: ObjectId('672c93bffbc84a5c6f0d8196'), name: 'American' }
+]
+ratingportal> db.restaurants.insertOne({ name:"Cafe De La Lamierre", address:{street: "Leopold Strasse", streetNnumber:"24A" , postalCode: 83456, city:"Munich", country:"Germany"}, type : { typeId : ObjectId('672c93aafbc84a5c6f0d8194') , name:"German" }  })
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c953ffbc84a5c6f0d8197')
+}
+ratingportal> db.restaurants.insertOne({ name:"Burger House", address:{street: "Fuffcoon Darse", streetNnumber:"63C" , postalCode: 76583, city:"New York", country:"United States"}, type : { typeId : ObjectId('672c93bffbc84a5c6f0d8196') , name:"American" }  })
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c95edfbc84a5c6f0d8198')
+}
+ratingportal> db.restaurants.find()
+[
+  {
+    _id: ObjectId('672c953ffbc84a5c6f0d8197'),
+    name: 'Cafe De La Lamierre',
+    address: {
+      street: 'Leopold Strasse',
+      streetNnumber: '24A',
+      postalCode: 83456,
+      city: 'Munich',
+      country: 'Germany'
+    },
+    type: { typeId: ObjectId('672c93aafbc84a5c6f0d8194'), name: 'German' }
+  },
+  {
+    _id: ObjectId('672c95edfbc84a5c6f0d8198'),
+    name: 'Burger House',
+    address: {
+      street: 'Fuffcoon Darse',
+      streetNnumber: '63C',
+      postalCode: 76583,
+      city: 'New York',
+      country: 'United States'
+    },
+    type: { typeId: ObjectId('672c93bffbc84a5c6f0d8196'), name: 'American' }
+  }
+]
+ratingportal> db.types.find()
+[
+  { _id: ObjectId('672c93aafbc84a5c6f0d8194'), name: 'German' },
+  { _id: ObjectId('672c93b5fbc84a5c6f0d8195'), name: 'Italian' },
+  { _id: ObjectId('672c93bffbc84a5c6f0d8196'), name: 'American' }
+]
+ratingportal> db.reviews.insertOne( { reviewerName: {firstName:"Simran", lastName:"Qureshi"}, rating: 8.6, text:"Litrally one of my decisions in life was too try their cuisine! Glad to find this restaurant.",date: new Date("2024-11-07"),restaurant:{restaurantId: ObjectId('672c953ffbc84a5c6f0d8197'), restaurantName:"Cafe De La Lamierre"}  } )
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c9828fbc84a5c6f0d8199')
+}
+ratingportal> db.reviews.find()
+[
+  {
+    _id: ObjectId('672c9828fbc84a5c6f0d8199'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 8.6,
+    text: 'Litrally one of my decisions in life was too try their cuisine! Glad to find this restaurant.',
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c953ffbc84a5c6f0d8197'),
+      restaurantName: 'Cafe De La Lamierre'
+    }
+  }
+]
+ratingportal> db.reviews.insertOne( { reviewerName: {firstName:"Simran", lastName:"Qureshi"}, rating: 1, text:"Worst decision to show up in this half ass cafe. They don't know shit about food, service. You are advised to visit here iff you have yearning for abysymal service and infatuation for ghastly, abbhorrent food.",date: new Date("2024-11-07"),restaurant:{restaurantId: ObjectId('672c95edfbc84a5c6f0d8198'), restaurantName:"Burger House"}  } )
+{
+  acknowledged: true,
+  insertedId: ObjectId('672c9a07fbc84a5c6f0d819a')
+}
+ratingportal> db.reviews.find()
+[
+  {
+    _id: ObjectId('672c9828fbc84a5c6f0d8199'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 8.6,
+    text: 'Litrally one of my decisions in life was too try their cuisine! Glad to find this restaurant.',
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c953ffbc84a5c6f0d8197'),
+      restaurantName: 'Cafe De La Lamierre'
+    }
+  },
+  {
+    _id: ObjectId('672c9a07fbc84a5c6f0d819a'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 1,
+    text: "Worst decision to show up in this half ass cafe. They don't know shit about food, service. You are advised to visit here iff you have yearning for abysymal service and infatuation for ghastly, abbhorrent food.",
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c95edfbc84a5c6f0d8198'),
+      restaurantName: 'Burger House'
+    }
+  }
+]
+ratingportal> db.restaurants.find()
+[
+  {
+    _id: ObjectId('672c953ffbc84a5c6f0d8197'),
+    name: 'Cafe De La Lamierre',
+    address: {
+      street: 'Leopold Strasse',
+      streetNnumber: '24A',
+      postalCode: 83456,
+      city: 'Munich',
+      country: 'Germany'
+    },
+    type: { typeId: ObjectId('672c93aafbc84a5c6f0d8194'), name: 'German' }
+  },
+  {
+    _id: ObjectId('672c95edfbc84a5c6f0d8198'),
+    name: 'Burger House',
+    address: {
+      street: 'Fuffcoon Darse',
+      streetNnumber: '63C',
+      postalCode: 76583,
+      city: 'New York',
+      country: 'United States'
+    },
+    type: { typeId: ObjectId('672c93bffbc84a5c6f0d8196'), name: 'American' }
+  }
+]
+ratingportal> db.reviews.find()
+[
+  {
+    _id: ObjectId('672c9828fbc84a5c6f0d8199'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 8.6,
+    text: 'Litrally one of my decisions in life was too try their cuisine! Glad to find this restaurant.',
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c953ffbc84a5c6f0d8197'),
+      restaurantName: 'Cafe De La Lamierre'
+    }
+  },
+  {
+    _id: ObjectId('672c9a07fbc84a5c6f0d819a'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 1,
+    text: "Worst decision to show up in this half ass cafe. They don't know shit about food, service. You are advised to visit here iff you have yearning for abysymal service and infatuation for ghastly, abbhorrent food.",
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c95edfbc84a5c6f0d8198'),
+      restaurantName: 'Burger House'
+    }
+  }
+]
+ratingportal> db.reviews.find( { rating:{ $lte:2  }  } )
+[
+  {
+    _id: ObjectId('672c9a07fbc84a5c6f0d819a'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 1,
+    text: "Worst decision to show up in this half ass cafe. They don't know shit about food, service. You are advised to visit here iff you have yearning for abysymal service and infatuation for ghastly, abbhorrent food.",
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c95edfbc84a5c6f0d8198'),
+      restaurantName: 'Burger House'
+    }
+  }
+]
+ratingportal> db.reviews.find( { rating:{ $gte:1  }  } )
+[
+  {
+    _id: ObjectId('672c9828fbc84a5c6f0d8199'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 8.6,
+    text: 'Litrally one of my decisions in life was too try their cuisine! Glad to find this restaurant.',
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c953ffbc84a5c6f0d8197'),
+      restaurantName: 'Cafe De La Lamierre'
+    }
+  },
+  {
+    _id: ObjectId('672c9a07fbc84a5c6f0d819a'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 1,
+    text: "Worst decision to show up in this half ass cafe. They don't know shit about food, service. You are advised to visit here iff you have yearning for abysymal service and infatuation for ghastly, abbhorrent food.",
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c95edfbc84a5c6f0d8198'),
+      restaurantName: 'Burger House'
+    }
+  }
+]
+ratingportal> db.reviews.find( { rating:{ $gte:5  }  } )
+[
+  {
+    _id: ObjectId('672c9828fbc84a5c6f0d8199'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 8.6,
+    text: 'Litrally one of my decisions in life was too try their cuisine! Glad to find this restaurant.',
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c953ffbc84a5c6f0d8197'),
+      restaurantName: 'Cafe De La Lamierre'
+    }
+  }
+]
+ratingportal> db.reviews.find({ $and; [{rating: {$gt:1}} ,{rating: {$lt:10}} ] } )
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:22)
+
+> 1 | db.reviews.find({ $and; [{rating: {$gt:1}} ,{rating: {$lt:10}} ] } )
+    |                       ^
+  2 |
+
+ratingportal> db.reviews.find({ $and: [{rating: {$gt:1}} ,{rating: {$lt:10}} ] } )
+[
+  {
+    _id: ObjectId('672c9828fbc84a5c6f0d8199'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 8.6,
+    text: 'Litrally one of my decisions in life was too try their cuisine! Glad to find this restaurant.',
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c953ffbc84a5c6f0d8197'),
+      restaurantName: 'Cafe De La Lamierre'
+    }
+  }
+]
+ratingportal> db.reviews.find({ $and: [{rating: {$gt:1}} ,{rating: {$lt:0}} ] } )
+
+ratingportal> db.reviews.find({ $and: [{rating: {$gt:1}} ,{rating: {$lt:2}} ] } )
+
+ratingportal> db.restaurants.find()
+[
+  {
+    _id: ObjectId('672c953ffbc84a5c6f0d8197'),
+    name: 'Cafe De La Lamierre',
+    address: {
+      street: 'Leopold Strasse',
+      streetNnumber: '24A',
+      postalCode: 83456,
+      city: 'Munich',
+      country: 'Germany'
+    },
+    type: { typeId: ObjectId('672c93aafbc84a5c6f0d8194'), name: 'German' }
+  },
+  {
+    _id: ObjectId('672c95edfbc84a5c6f0d8198'),
+    name: 'Burger House',
+    address: {
+      street: 'Fuffcoon Darse',
+      streetNnumber: '63C',
+      postalCode: 76583,
+      city: 'New York',
+      country: 'United States'
+    },
+    type: { typeId: ObjectId('672c93bffbc84a5c6f0d8196'), name: 'American' }
+  }
+]
+ratingportal> db.reviews.find( { rating:{ $lte:5  }  } )
+[
+  {
+    _id: ObjectId('672c9a07fbc84a5c6f0d819a'),
+    reviewerName: { firstName: 'Simran', lastName: 'Qureshi' },
+    rating: 1,
+    text: "Worst decision to show up in this half ass cafe. They don't know shit about food, service. You are advised to visit here iff you have yearning for abysymal service and infatuation for ghastly, abbhorrent food.",
+    date: ISODate('2024-11-07T00:00:00.000Z'),
+    restaurant: {
+      restaurantId: ObjectId('672c95edfbc84a5c6f0d8198'),
+      restaurantName: 'Burger House'
+    }
+  }
+]
+ratingportal>
+
+

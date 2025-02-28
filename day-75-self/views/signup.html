@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/signup.css" />
+    <link rel="stylesheet" href="/styles/homepage.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
+    <link
+      rel="icon"
+      href="/images/55b01512-3dfd-4f22-8807-a166922250f3.jpeg"
+      type="image/jpg"
+    />
+    <title>Signup</title>
+  </head>
+  <body>
+    <header>
+      <nav class="visible-nav">
+        <ul>
+          <li>
+            <img
+              id="welcome"
+              src="/images/55b01512-3dfd-4f22-8807-a166922250f3.jpeg"
+              alt="logo of SpillTheTea"
+              id="logo"
+            />
+          </li>
+          <li id="navigate"><a href="login.html">Login</a></li>
+          <li id="navigate"><a href="admin.html">Admin</a></li>
+          <li id="navigate"><a href="login.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="signup-card">
+        <h1>Signup</h1>
+        <form action="">
+          <label for="useremail">Email</label>
+          <input type="text" id="useremail" required />
+          <label for="useremail">Confirm Email</label>
+          <input type="text" id="useremail" required />
+
+          <label for="userpswd">Password</label>
+          <input type="password" id="userpswd" required />
+
+          <div class="options">
+            <label> <input type="checkbox" />Remember Me </label>
+          </div>
+          <br />
+          <a class="create-user-button-container">Create User</a>
+          <p>Already have an account?<a href="login.html">Login instead?</a></p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

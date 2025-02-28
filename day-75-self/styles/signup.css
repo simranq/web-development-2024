@@ -1,0 +1,103 @@
+body {
+    font-family: 'Kanit', sans-serif;   
+    margin: 0;
+    padding:0;
+    display: block;
+    background: url('https://plus.unsplash.com/premium_photo-1681426785598-7a2b734181fa?q=80&w=1503&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.signup-card h1 {
+    font-weight: bold;
+    text-align: center;
+    color: #27350c;
+}
+
+.signup-card input {
+    font-family: 'Kanit', sans-serif;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    border-bottom: 2px solid white;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: brown;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.create-user-button-container {
+    text-decoration: none;
+    border-radius: 3rem;
+    font-size: 18px;
+    margin: auto;
+    padding: 0.6rem 3.5rem;
+    text-align: center;
+    color: #33b180;
+    border: 1px solid #33b180;
+    background: linear-gradient(to right, #a18cd1, #fbc2eb);
+    transition: background 0.5s ease-out;
+}
+
+.create-user-button-container:hover {
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(to right, #17d38b, #36be24);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+    .signup-card {
+        margin: auto;
+        height: 260px;
+        width: 220px;
+        font-size: 0.6rem;
+        color: rgb(255, 255, 255);
+        position: relative;
+        backdrop-filter: blur(10px);
+        z-index: 1;
+        padding: 0.5rem;
+        box-shadow: 2px 4px 8px rgb(18, 18, 20);
+        border-radius: 8px;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    .signup-card {
+        height: 400px;
+        width: 300px;
+        margin: auto;
+        color: rgb(255, 255, 255);
+        position: relative;
+        backdrop-filter: blur(10px);
+        z-index: 1;
+        padding: 2rem;
+        box-shadow: 2px 4px 8px rgb(18, 18, 20);
+        border-radius: 8px;
+    }
+}

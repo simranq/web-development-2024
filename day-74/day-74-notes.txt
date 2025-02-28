@@ -1,0 +1,85 @@
+# DAY 74 : WEBSITE SECURITY
+
+- SECURITY VS AUTHENTICATION
+- CSRF ATTACKS , XSS ATTACKS , SQL INJECTION
+- ESCAPING AND SANITIZING USER INPUT
+
+## SECURITY VS AUTHENTICATION:
+
+AUTHENTICATION -
+Control expected actions by your website visitors
+Grant some visitors more privileges than others
+
+SECURITY -
+Prevent unexpected (potentially malicious) actions by visitors / other people
+Prevent exposing data or granting unwanted access to certain actions or your code
+
+## CSRF ATTACKS
+
+Cross Side Request Forgery
+
+GIST - malicious guy sends a forged request which triggers the backend code of our site using session of any user 
+**Same-site Cookies** : Cookie configuration that can be set on the server-side where browsers also assume default values if it was not explicitly configured.
+Chrome uses "lax" as a default configuration
+
+Installed csurf token , activated it .
+Any request(typically POST) that manipulate something on the backend should carry a **csrf token**.
+automatically look for this ->  name="_csrf"
+
+
+        <!-- <input type="hidden" name="_csrf" value="<%= csrfToken %>"> -->
+-----------------------------------------------------------------------------------------------------------------------------
+UNDERSTANDING XSS ATTACKS
+XSS - Cross Side Scripting
+-> displays fetched data (eg-rendered template) + contains (sneeks) malicious browser-side JavaScript code
+-> with or w/o AUTHENTICATION xss vulnerabiities persist
+
+PROTECTING AGAINST XSS ATTACKS
+
+Client part
+-> don't o/p + parse raw html content(if provided by users), instead escape it.
+i.e output them as plain text
+
+Backend - db part
+-> Sanitize(clean) user i/p before processing and storing if not escaped.
+
+=========================================================================================================================
+#NOTE:
+Use '<%= ... %>' instead of '<%- ... %>': equals will treat comment.text as plain text thus always use equals when dealing with user-generated content
+unless u really really must parse html content(here in ase of really really case make sure
+to sanitize code first)
+=========================================================================================================================
+npm install xss -> to sanitize code first when not able to escape
+package - express-validator : middleware approach
+-------------------------------------------------------------------------------------------------------
+
+UNDERSTANDING SQL INJECTION ATTACKS
+
+-----------------------------------------
+const mysql2 = require('mysql2/promise');
+
+const pool = mysql2.createPool({
+    host: 'localhost',
+    database: 'blog',
+    user: 'root',
+    password: '1234'
+});
+
+module.exports = pool;
+-----------------------------------------
+Anyone can inject and drop whole table and thereby crashing our sys.
+escape user i/p.
+use ? wala sntax for sql
+
+multipleStatements: false => FOR AVOIDING SQL INJECTION SITUATIONS
+NoSQL injections bhi dekhna h but abhi I have done basic toh filaal not required.
+MUST DO S-
+1] csrf token by 3rd prty package
+2] don't trust ur users and their inputs
+3] santize code before processing/storing it
+4] only output escaped (not raw data) in browser if you really know what you are doing.
+
+MISTAKES-
+1] Be careful of serving folders statically
+2] Avoid sending raw error msgs to visitors
+3] Don't store imp files in public, static folders.

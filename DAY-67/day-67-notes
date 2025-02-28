@@ -1,0 +1,24 @@
+================================================================
+            Module content - HANDLING FILE UPLOADS
+================================================================    
+1] The DIFFERENT PARTS OF "UPLOADING FILES"
+2] SELECTING & UPLOADING FILES
+3] STORING & SERVING UPLOADED FILES
+=================================================================
+input tag with type="file"
+enctype -> how data is encoded/packed, for file pickers=='multipart/form-data'
+package multer in github for express
+
+explain enctype
+enctype is an attribute in HTML that specifies how the form data should be encoded
+when submitted to the server. It stands for encoding type. The enctype attribute
+is used in the <form> tag and is especially relevant for forms that include 
+file uploads or non-ASCII characters.
+
+app.use(express.urlencoded({ extended: false }));
+The express.urlencoded({ extended: false }) middleware is used in 
+Express.js to parse incoming request bodies in the enctype = 
+"application/x-www-form-urlencoded" format. 
+It makes it easier to handle form data sent via HTTP POST requests.
+--------
+databases store data and not # files #, files are stored in hard drive. and db stores the pah to that file

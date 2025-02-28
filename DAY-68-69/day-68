@@ -1,0 +1,51 @@
+AJAX & JavaScript-driven HTTP Requests => Sending Requests "Behind The Scenes"
+What & Why ?
+Sending JavaScript-driven HTTP Requests
+Handling responses & errors
+
+XML - extensible markup language
+It is a data formatting in a machine-readable way. Looks like HTML, cuz HTML is based on XML.
+You can reate your own data and structure it how you want and it is not standardized unlike HTML.
+As it is too verbose, JSON is used instead of XML.(double quotes are a must!! in JSON)
+
+
+AJAX - Asynchronous JavaScript And XML
+# XMLHttpRequest
+- an obj built into browser-side JavaScript that contains utility methods 
+for Sending Http Requests via JavaScript.
+- originally, dev to send XML data
+- a bit clunky to use
+- instead use 3rd party libraries like ' Axios '
+
+# fetch()
+- an obj built into browser-side JavaScript that contains utility methods 
+for Sending Http Requests via JavaScript.
+- uses modern js concepts like promises
+- relatively straightforward to use
+- alternative to XMLHttpRequest and 3rd party libraries like ' Axios '
+
+# the 'data-*' in html is used to store custom pvt data like ids
+
+JSON
+parse()-> converts strings into js objects
+stringify()-> converts js objects into strings
+
+error is 400ish / 500ish ones whereas 200ish / 300is are ok ✔ ones.
+
+use try / catch to catch errors.
+
+# More HTTP methods
+========================================================
+
+# default browser http methods
+GET - fetch some data
+POST - store some data
+
+-------------------------------------------------------
+
+# available ajax / js-driven http requests
+PUT - replace/update some data
+PATCH - update some data
+DELETE - delete some data
+
+==========================================================

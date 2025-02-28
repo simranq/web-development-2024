@@ -1,0 +1,16 @@
+{
+  "name": "calc-ang",
+  "version": "1.0.0",
+  "description": "Dynamic Calculator ",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simran Qureshi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
